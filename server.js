@@ -20,23 +20,3 @@ io.on(
         );
     }
 );
-
-var count = 0;
-io.sockets.on('connection', function (socket) {
-
-    // 接続時にカウンタのインクリメント
-    count++;
-
-    // ブロードキャストで送信
-    io.sockets.emit('user connected',count);
-
-    // 切断
-    socket.on('disconnect', function () {
-
-        // カウンタのデクリメント
-        count--;
-
-        // ブロードキャストで送信
-        io.sockets.emit('user disconnected',count);
-    });
-});

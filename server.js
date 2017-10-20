@@ -20,6 +20,3 @@ io.on(
         );
     }
 );
-setTimeout(() => {
-   console.log('Timeout');
-}, 5000);

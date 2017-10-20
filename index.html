@@ -15,4 +15,8 @@
    data = $('<div/>').text(data).html();
    $('div').prepend(data + '<br>');
  });
+ setTimeout(() => {
+    console.log('Timeout');
+ }, 5000);
+
 </script>

@@ -22,13 +22,21 @@ io.on(
 );
 
 var count = 0;
-io.sockets.on('connection', function(socket) {
-  //connect
-  count++;
-  io.sockets.emit('count change', count);
-  socket.on('disconnect', function() {
-    //disconnect
-    count--;
-    socket.broadcast.emit('count change', count);
-  });
+io.sockets.on('connection', function (socket) {
+
+    // 接続時にカウンタのインクリメント
+    count++;
+
+    // ブロードキャストで送信
+    io.sockets.emit('user connected',count);
+
+    // 切断
+    socket.on('disconnect', function () {
+
+        // カウンタのデクリメント
+        count--;
+
+        // ブロードキャストで送信
+        io.sockets.emit('user disconnected',count);
+    });
 });

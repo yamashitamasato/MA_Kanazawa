@@ -1,3 +1,4 @@
+/*
 var WebSocketServer = require("ws").Server
 var http = require("http")
 var express = require("express")
@@ -26,3 +27,4 @@ wss.on("connection", function(ws) {
     clearInterval(id)
   })
 })
+*/

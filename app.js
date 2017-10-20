@@ -1,10 +1,10 @@
 // 1.モジュールオブジェクトの初期化
 var fs = require("fs");
-var server = require("http").createServer(function(req, res) {
+var server = require("https").createServer(function(req, res) {
      res.writeHead(200, {"Content-Type":"text/html"});
      var output = fs.readFileSync("./index.html", "utf-8");
      res.end(output);
-}).listen(8080);
+}).listen(process.env.PORT || 3000);
 var io = require("socket.io").listen(server);
 
 // ユーザ管理ハッシュ

@@ -10,7 +10,7 @@
   <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript">
     // 1.イベントとコールバックの定義
-    var socketio = io.connect('http://makanazawamini.herokuapp.com:8080');
+    var socketio = io.connect('https://makanazawamini.herokuapp.com:3000');
 
     socketio.on("connected", function(name) {});
     socketio.on("publish", function (data) { addMessage(data.value); });

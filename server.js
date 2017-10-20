@@ -15,23 +15,22 @@ var http = require('http').createServer(
                 res.writeHead(200, {'Content-Type': 'text/html'});
                 res.end(top);
               }
-
-
-}
-});
+        }
+    });
 
 
 var io = require('socket.io')(http);
 var webPort = process.env.PORT || 3000;
+var count = 0;
 http.listen(webPort);
-io.on(
-    'connection',
-    function (socket) {
-        socket.on(
-            'msg',
-            function (data) {
-                io.emit('msg', data);
-            }
-        );
-    }
-);
+var io = require('socket.io').listen(http);
+io.sockets.on('connection', function(socket) {
+
+  console.log('コネクション数',socket.client.conn.server.clientsCount);
+  io.sockets.emit('count', socket.client.conn.server.clientsCount);
+
+  socket.on('disconnect', function(data) {
+    console.log('コネクション数',socket.client.conn.server.clientsCount);
+    io.sockets.emit('count', socket.client.conn.server.clientsCount);
+  });
+});

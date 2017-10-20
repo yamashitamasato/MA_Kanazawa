@@ -8,9 +8,15 @@
 <main>
      <div>
          <h2>データ集計中</h2>
-
+         <p>接続数:<span id="count"></span></p>
        </div>
    </main>
 <script>
+var socket = io.connect();
+     var $count = $('#count');
 
+     socket.on('count', function(data) {
+         $count.text(data);
+         console.log(data);
+     });
 </script>

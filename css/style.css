@@ -1,3 +1,5 @@
+
+
 button.button3 {
     /* 文字サイズを1.4emに指定 */
     font-size: 1.4em;
@@ -8,15 +10,14 @@ button.button3 {
     /* 縦方向に10px、
      * 横方向に30pxの余白を指定 */
     padding: 10px 30px;
-    width: 60%;
-    height: 460px;
+
     /* 背景色を濃い青色に指定 */
     background-color: #248;
-    text-align : center ;
+
     /* 文字色を白色に指定 */
     color: #fff;
 
     /* ボーダーをなくす */
     border-style: none;
-
+    width: 60%
 }

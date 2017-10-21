@@ -1,23 +1,35 @@
 <!doctype html>
-<meta charset="utf-8">
-<title>chat</title>
+<html>
 
-<script src="/socket.io/socket.io.js"></script>
-<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
-<center>
-<button class="button3" onclick="publishMessage();">ホゲホゲ</button>
-</center>
+<head>
+  <meta charset="utf-8">
+  <title>chat</title>
 
-<p id='countdata'>まだ誰もクリックしていないよ!!!!</p>
+</head>
 
-<script>
- var socket = io();
- function publishMessage(data){
-   socket.emit('test');
- }
+<body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <center>
+    <button class="button3" onclick="publishMessage();">ホゲホゲ</button>
 
- socket.on('msg', function (data) {
-   document.getElementById('countdata').innerHTML = data;
- });
-</script>
+    <p id='countdata' class="counter">まだ誰もクリックしていないよ!!!!</p>
+  </center>
+
+  <script>
+    var socket = io();
+
+    function publishMessage(data) {
+      socket.emit('test');
+    }
+
+    socket.on('msg', function(data) {
+      document.getElementById('countdata').innerHTML = data;
+    });
+
+
+  </script>
+</body>
+
+</html>

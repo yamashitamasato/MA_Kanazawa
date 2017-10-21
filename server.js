@@ -34,7 +34,6 @@ var count=0;
 io.on(
     'connection',
     function (socket) {
-      console.log('a');
         socket.on(
             'test',
             function (data) {

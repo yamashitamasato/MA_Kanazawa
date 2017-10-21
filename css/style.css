@@ -20,7 +20,7 @@ button.button {
     /* ボーダーをなくす */
     border-style: none;
     width: 75%;
-    height:275px;
+    height: auto;
 }
 p.counter{
   width: 100%;

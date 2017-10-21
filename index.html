@@ -1,37 +1,38 @@
 <!doctype html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
-
-  <title>chat</title>
-
+<!DOCTYPE html>
+<html style="height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table;">
+  <head>
+<meta charset="utf-8">
+<title>chat</title>
 </head>
+<body style="	min-height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
+">
+<script src="/socket.io/socket.io.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="/css/style.css">
+<!--chat部分<form><input></form><div></div>-->
 
-<body>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <center>
-    <button class="button" onclick="publishMessage();"><img style="width:50%"src="/image/good.png"><br/><center><p style="width:80%">イイね！！！！</p></center></button>
+<main>
+     <div>
+         <h2>キーワードが生成されるまでしばらく待ってね</h2>
+         <!--<p>接続数:<span id="count"></span></p>-->
+       </div>
+   </main>
+<script>
+var socket = io.connect();
+     var $count = $('#count');
 
-    <p id='countdata' class="counter">まだ誰もクリックしていないよ!!!!</p>
-  </center>
-
-  <script>
-    var socket = io();
-
-    function publishMessage(data) {
-      socket.emit('test');
-    }
-
-    socket.on('msg', function(data) {
-      document.getElementById('countdata').innerHTML = data;
-    });
-
-
-  </script>
+     socket.on('count', function(data) {
+         $count.text(data);
+         console.log(data);
+     });
+</script>
 </body>
-
 </html>

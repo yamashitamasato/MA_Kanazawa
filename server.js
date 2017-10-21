@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+var state=0;
 //var html = require('fs').readFileSync('wait.html');
 var mime = {
   ".html": "text/html",
@@ -9,9 +10,12 @@ var mime = {
 var http = require('http').createServer(
     function (req, res) {
 
+
   if (req.url == '/') {
     filePath = '/index.html';
-  } else {
+  } else if(req.url=='/start'){
+    filePath = '/start.html'
+  } else{
     filePath = req.url;
   }
   var fullPath = __dirname + filePath;
@@ -24,7 +28,6 @@ var http = require('http').createServer(
       res.end(data, 'UTF-8');
     }
   });
-
 });
 var io = require('socket.io')(http);
 var webPort = process.env.PORT || 3000;

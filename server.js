@@ -3,6 +3,8 @@ var http = require('http').createServer(
     function (req, res) {
         res.writeHead(200, {'Content-Type': 'text/html'});
         res.end(html);
+
+
 });
 var io = require('socket.io')(http);
 var webPort = process.env.PORT || 3000;
@@ -15,7 +17,7 @@ io.on(
             'test',
             function (data) {
                 count=count+1;
-                console.log(count);
+                io.emit('msg', count);
             }
         );
     }

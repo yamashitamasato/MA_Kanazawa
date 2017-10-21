@@ -30,9 +30,11 @@ var io = require('socket.io')(http);
 var webPort = process.env.PORT || 3000;
 http.listen(webPort);
 var count=0;
+
 io.on(
     'connection',
     function (socket) {
+      console.log('a');
         socket.on(
             'test',
             function (data) {
@@ -40,5 +42,5 @@ io.on(
                 io.emit('msg', count);
             }
         );
-    },
+    }
 );

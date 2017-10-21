@@ -4,19 +4,17 @@
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 <button class="button3" onclick="publishMessage();">ホゲホゲ</button>
 <p id='countdata'>まだ誰もクリックしていないよ!!!!</p>
 <script>
  var socket = io();
+
  function publishMessage(data){
    socket.emit('test');
  }
 
  socket.on('msg', function (data) {
-   console.log(data);
    document.getElementById('countdata').innerHTML = data;
-
-
  });
 </script>

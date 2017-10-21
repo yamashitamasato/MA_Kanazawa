@@ -1,9 +1,9 @@
 
 
-button.button3 {
+button.button {
     /* 文字サイズを1.4emに指定 */
     font-size: 1.4em;
-
+    font-weight: 100%;
     /* 文字の太さをboldに指定 */
     font-weight: bold;
 
@@ -19,8 +19,8 @@ button.button3 {
 
     /* ボーダーをなくす */
     border-style: none;
-    width: 60%;
-    height:350px;
+    width: 75%;
+    height:275px;
 }
 p.counter{
   width: 100%;

@@ -19,5 +19,10 @@ button.button3 {
 
     /* ボーダーをなくす */
     border-style: none;
-    width: 60%
+    width: 60%;
+    height: 250px;
+}
+p.counter{
+  width: 60%;
+  font-size: 40px
 }

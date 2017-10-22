@@ -1,4 +1,3 @@
-<!doctype html>
 <!DOCTYPE html>
 <html style="height: 100%;
 	margin: 0 auto;
@@ -17,22 +16,31 @@
 <script src="/socket.io/socket.io.js"></script>
 <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
 <link rel="stylesheet" href="/css/style.css">
-<!--chat部分<form><input></form><div></div>-->
 
 <main>
-     <div>
-         <h2>キーワードが生成されるまでしばらく待ってね</h2>
-         <!--<p>接続数:<span id="count"></span></p>-->
-       </div>
-   </main>
+  <div>
+    <h2>キーワードが生成されるまでしばらく待ってね</h2>
+  </div>
+</main>
 <script>
-var socket = io.connect();
-     var $count = $('#count');
+  var socket = io.connect();
+  var $count = $('#count');
 
-     socket.on('count', function(data) {
-         $count.text(data);
-         console.log(data);
-     });
+  socket.on('count', function(data) {
+     $count.text(data);
+     console.log(data);
+  });
+  socket.on('startlist', function(data) {
+   location.replace('/start');
+  });
+  socket.on('jump', function(data) {
+   // location.replace('/start');
+   console.log('fa');
+   location.href = "/start";
+  });
+  //setTimeout("jumpPage()",1000)
+
+
 </script>
 </body>
 </html>
